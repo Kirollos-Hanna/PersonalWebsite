@@ -6,13 +6,12 @@ const Header = ({ siteTitle }) => (
   <header
     style={{
       background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
     }}
   >
-    <div
+    <div className="header-div"
       style={{
         margin: `0 auto`,
-        maxWidth: 960,
+        // maxWidth: 960,
         padding: `1.45rem 1.0875rem`,
       }}
     >
@@ -27,6 +26,24 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </h1>
+      <div className="header-nav">
+        <Link
+          to="/Blog">
+          Blog
+        </Link>
+        <Link
+          to="/Portfolio">
+          Portfolio
+        </Link>
+        <Link
+          to="/Aboutme">
+          About Me
+        </Link>
+        <Link
+          to="/Contactme">
+          Contact
+        </Link>
+      </div>
     </div>
   </header>
 )

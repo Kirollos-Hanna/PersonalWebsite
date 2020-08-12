@@ -1,3 +1,46 @@
+* {
+    font-family: monospace;
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 48px;
+}
+
+/* backgroundColor: `#000`,
+margin: `0 auto`,
+maxWidth: 960,
+padding: `0 1.0875rem 1.45rem`, */
+
+header {
+    padding: 0;
+}
+
+#headline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../images/headlineImg.jpg");
+    color: white;
+    height: 300px;
+}
+
+.header-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .typewriter h1 {
     overflow: hidden;
     /* Ensures the content is not revealed until the animation */
@@ -10,7 +53,7 @@
     letter-spacing: .15em;
     /* Adjust as needed */
     animation:
-        typing 3.5s steps(40, end),
+        typing 2.5s steps(40, end),
         blink-caret .75s step-end infinite;
 }
 
@@ -35,5 +78,11 @@
 
     50% {
         border-color: orange;
+    }
+}
+
+@media screen and (max-width: 600) {
+    .header-nav {
+        display: none;
     }
 }
