@@ -1,88 +1,267 @@
 * {
-    font-family: monospace;
-    font-size: 24px;
-    margin: 0;
-    padding: 0;
+  font-family: monospace;
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
 }
 
-h1 {
-    font-size: 48px;
+html {
+  background-color: #b5b5b5;
 }
 
-/* backgroundColor: `#000`,
-margin: `0 auto`,
-maxWidth: 960,
-padding: `0 1.0875rem 1.45rem`, */
+/* 
+Header Styling
+*/
 
 header {
-    padding: 0;
+  padding: 0;
 }
 
 #headline {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-image: url("../images/headlineImg.jpg");
-    color: white;
-    height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../images/headlineImg.jpg");
+  color: white;
+  height: 300px;
 }
 
 .header-div {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 20px;
 }
 
 .header-nav {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 500px;
+}
+
+.hamburger-links {
+  display: flex;
+  flex-direction: column;
+  margin-top: 35px;
+  width: 100%;
+  height: 20px;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.hamburger-links a {
+  background-color: rebeccapurple;
+  color: black;
+  text-decoration: none;
+}
+
+.hamburger-menu {
+  display: none;
+}
+
+.header-nav a {
+  color: black;
+  text-decoration: none;
 }
 
 .typewriter h1 {
-    overflow: hidden;
-    /* Ensures the content is not revealed until the animation */
-    border-right: .15em solid orange;
-    /* The typwriter cursor */
-    white-space: nowrap;
-    /* Keeps the content on a single line */
-    margin: 0 auto;
-    /* Gives that scrolling effect as the typing happens */
-    letter-spacing: .15em;
-    /* Adjust as needed */
-    animation:
-        typing 2.5s steps(40, end),
-        blink-caret .75s step-end infinite;
+  overflow: hidden;
+  /* Ensures the content is not revealed until the animation */
+  border-right: 0.15em solid orange;
+  /* The typwriter cursor */
+  white-space: nowrap;
+  /* Keeps the content on a single line */
+  margin: 0 auto;
+  /* Gives that scrolling effect as the typing happens */
+  letter-spacing: 0.15em;
+  /* Adjust as needed */
+  animation: typing 2.5s steps(40, end), blink-caret 0.75s step-end infinite;
 }
 
 /* The typing effect */
 @keyframes typing {
-    from {
-        width: 0
-    }
+  from {
+    width: 0;
+  }
 
-    to {
-        width: 100%
-    }
+  to {
+    width: 100%;
+  }
 }
 
 /* The typewriter cursor effect */
 @keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
 
-    from,
-    to {
-        border-color: transparent
-    }
-
-    50% {
-        border-color: orange;
-    }
+  50% {
+    border-color: orange;
+  }
 }
 
-@media screen and (max-width: 600) {
-    .header-nav {
-        display: none;
-    }
+@media screen and (max-width: 700px) {
+  .header-nav {
+    display: none;
+    /* display hamburger icon */
+  }
+
+  .hamburger-menu {
+    display: block;
+  }
+}
+
+/* 
+Footer Styling
+*/
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+  background-color: #b5b5b5;
+}
+
+.footer .links {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.footer ul {
+  list-style-type: none;
+  padding: 5px 20px;
+  margin-top: 5px;
+  border-left: 1px solid black;
+}
+
+.footer ul li a {
+  font-size: 16px;
+  text-decoration: none;
+  color: rebeccapurple;
+}
+
+.footer ul p b {
+  font-size: 20px;
+}
+
+.footer footer,
+.footer footer a {
+  font-size: 14px;
+  text-decoration: none;
+}
+
+/* Headline Styling */
+
+#headline h1 {
+  font-size: 42px;
+}
+
+/*
+Portfolio section styling
+*/
+
+.portfolio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  padding: 20px 0;
+  height: 400px;
+  position: relative;
+}
+
+.portfolio .items {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  max-width: 100%;
+  /* padding: 30px 0; */
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 700px) {
+  .portfolio {
+    height: 250px;
+  }
+}
+
+/* Portfolio item styling */
+
+.portfolio-item {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: 2px solid black;
+  width: 500px;
+  min-height: 300px;
+  border-radius: 10px;
+  padding: 5px;
+  -webkit-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.75);
+  transition-duration: 1s;
+}
+
+/* example for carousel that should be converted to styling in reactjs */
+/* .portfolio-item:nth-child(1) {
+  z-index: -1;
+  left: 1%;
+  opacity: 0.5;
+  width: 400px;
+}
+
+.portfolio-item:nth-child(2) {
+  z-index: 0;
+  transform: translateY(30px);
+}
+
+.portfolio-item:nth-child(3) {
+  z-index: -1;
+  right: 1%;
+  opacity: 0.5;
+  width: 400px;
+}
+
+.portfolio-item:nth-child(4) {
+  z-index: -2;
+  opacity: 0;
+  right: 30%;
+} */
+
+.portfolio-item:hover {
+  -webkit-box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.75);
+}
+
+@media screen and (max-width: 700px) {
+  .portfolio-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 2px solid black;
+    width: 200px !important;
+    min-height: 150px;
+  }
+
+  .portfolio-item h3,
+  .portfolio-item p,
+  .portfolio-item a {
+    font-size: 18px;
+  }
+
+  .portfolio-item span {
+    font-size: 16px;
+  }
 }
