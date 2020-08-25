@@ -6,8 +6,16 @@ import SEO from "../components/seo"
 
 const ContactMe = () => (
   <Layout currentLink="contact">
-    <SEO title="Kiro Hanna's Blog" />
-    <h1>Contact Me page</h1>
+    <SEO title="Kiro Hanna's Contact Me" />
+    
+    <div className="center-content">
+      <div className="container">
+        <h1>Contact me</h1>
+        <div>
+          <p>Contact Form here</p>
+        </div>
+      </div>
+    </div>
   </Layout>
 )
 

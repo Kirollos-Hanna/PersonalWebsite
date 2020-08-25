@@ -1,13 +1,20 @@
 import React from "react"
-// import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const AboutMe = () => (
   <Layout currentLink="aboutMe">
-    <SEO title="Kiro Hanna's Blog" />
-    <h1>About me page</h1>
+    <SEO title="Kiro Hanna's About Me" />
+    <div className="center-content">
+      <div className="container">
+        <h1>About me</h1>
+        <div>
+          <p>Picture here</p>
+          <p>I'm Kiro. A programmer with an aspiration to make money solving problems with my coding skills.</p>
+        </div>
+      </div>
+    </div>
   </Layout>
 )
 

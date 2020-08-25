@@ -127,6 +127,7 @@ class Portfolio extends React.Component {
             }
           })}
         </div>
+        <p>Make a button that allows the user to redirect to the portfolio page</p>
       </div>
     )
   }

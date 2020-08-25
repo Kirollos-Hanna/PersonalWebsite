@@ -265,3 +265,26 @@ Portfolio section styling
     font-size: 16px;
   }
 }
+
+
+/*
+ container styling
+ */
+
+ .center-content{
+   display: flex;
+   justify-content: center;
+   padding: 10px 0;
+ }
+
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 600px;
+  padding: 10px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 10px;
+}
