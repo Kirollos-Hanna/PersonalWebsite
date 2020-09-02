@@ -54,7 +54,7 @@ header {
 }
 
 .hamburger-links a {
-  background-color: rebeccapurple;
+  background-color: #5c33ff;
   color: black;
   text-decoration: none;
 }
@@ -142,7 +142,7 @@ Footer Styling
 .footer ul li a {
   font-size: 16px;
   text-decoration: none;
-  color: rebeccapurple;
+  color: #5c33ff;
 }
 
 .footer ul p b {
@@ -211,32 +211,6 @@ Portfolio section styling
   transition-duration: 1s;
 }
 
-/* example for carousel that should be converted to styling in reactjs */
-/* .portfolio-item:nth-child(1) {
-  z-index: -1;
-  left: 1%;
-  opacity: 0.5;
-  width: 400px;
-}
-
-.portfolio-item:nth-child(2) {
-  z-index: 0;
-  transform: translateY(30px);
-}
-
-.portfolio-item:nth-child(3) {
-  z-index: -1;
-  right: 1%;
-  opacity: 0.5;
-  width: 400px;
-}
-
-.portfolio-item:nth-child(4) {
-  z-index: -2;
-  opacity: 0;
-  right: 30%;
-} */
-
 .portfolio-item:hover {
   -webkit-box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.75);
@@ -266,18 +240,17 @@ Portfolio section styling
   }
 }
 
-
 /*
  container styling
  */
 
- .center-content{
-   display: flex;
-   justify-content: center;
-   padding: 10px 0;
- }
+.center-content {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
 
-.container{
+.container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -287,4 +260,46 @@ Portfolio section styling
   background-color: white;
   border: 2px solid black;
   border-radius: 10px;
+}
+
+/* contact me styling */
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form label,
+.form div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form button,
+.form input,
+.form textarea {
+  margin: 10px;
+}
+
+.form-button {
+  padding: 5px;
+  background-color: white;
+}
+
+.form-button:hover {
+  background-color: #e0e0e0;
+}
+
+.form-button:active {
+  background-color: white;
+}
+
+/* about me styling */
+
+.about-me {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

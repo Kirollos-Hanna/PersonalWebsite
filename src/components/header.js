@@ -21,7 +21,7 @@ class Header extends React.Component {
     return (
       <header
         style={{
-          background: `rebeccapurple`,
+          background: `#5c33ff`,
         }}
       >
         <div

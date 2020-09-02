@@ -37,6 +37,9 @@ class Portfolio extends React.Component {
     this.onMouseDown = this.onMouseDown.bind(this)
     this.onMouseMove = this.onMouseMove.bind(this)
     this.onMouseUp = this.onMouseUp.bind(this)
+    this.onTouchStart = this.onTouchStart.bind(this)
+    this.onTouchMove = this.onTouchMove.bind(this)
+    this.onTouchEnd = this.onTouchEnd.bind(this)
   }
 
   componentDidUpdate(props, state) {
@@ -49,53 +52,87 @@ class Portfolio extends React.Component {
     }
   }
 
-  onMouseDown(e) {
-    if (e.button !== 0) return
-    this.setState({
+  start(entity, e, pageX) {
+    entity.setState({
       dragging: true,
-      initialMousePos: e.pageX,
+      initialMousePos: pageX,
     })
     e.stopPropagation()
     e.preventDefault()
   }
 
-  onMouseUp(e) {
-    this.setState({ dragging: false, itemXPos: 0 })
-    if (this.state.initialMousePos - this.state.currentMousePos <= -200) {
-      if (this.state.midSectionOfArray === 0) return
-      this.setState({
-        midSectionOfArray: this.state.midSectionOfArray - 1,
+  move(entity, e, pageX) {
+    if (!entity.state.dragging) return
+    entity.setState({
+      currentMousePos: pageX,
+      itemXPos: pageX - entity.state.initialMousePos,
+    })
+    e.stopPropagation()
+    e.preventDefault()
+  }
+
+  end(entity, e) {
+    entity.setState({ dragging: false, itemXPos: 0 })
+    if (entity.state.initialMousePos - entity.state.currentMousePos <= -200) {
+      if (entity.state.midSectionOfArray === 0) return
+      entity.setState({
+        midSectionOfArray: entity.state.midSectionOfArray - 1,
       })
-    } else if (this.state.initialMousePos - this.state.currentMousePos >= 200) {
+    } else if (
+      entity.state.initialMousePos - entity.state.currentMousePos >=
+      200
+    ) {
       if (
-        this.state.midSectionOfArray >=
-        this.state.portfolioItemsData.length - 1
+        entity.state.midSectionOfArray >=
+        entity.state.portfolioItemsData.length - 1
       )
         return
-      this.setState({
-        midSectionOfArray: this.state.midSectionOfArray + 1,
+      entity.setState({
+        midSectionOfArray: entity.state.midSectionOfArray + 1,
       })
     }
     e.stopPropagation()
     e.preventDefault()
   }
 
+  onTouchStart(e) {
+    // console.log(e)
+    // console.log(e.changedTouches[0].pageX)
+    this.start(this, e, e.changedTouches[0].pageX)
+  }
+
+  onTouchMove(e) {
+    this.move(this, e, e.changedTouches[0].pageX)
+  }
+
+  onTouchEnd(e) {
+    this.end(this, e)
+  }
+
+  onMouseDown(e) {
+    if (e.button !== 0) return
+    this.start(this, e, e.pageX)
+  }
+
+  onMouseUp(e) {
+    this.end(this, e)
+  }
+
   onMouseMove(e) {
-    if (!this.state.dragging) return
-    this.setState({
-      currentMousePos: e.pageX,
-      itemXPos: e.pageX - this.state.initialMousePos,
-    })
-    console.log(this.state.itemXPos + " " + e.pageX)
-    e.stopPropagation()
-    e.preventDefault()
+    this.move(this, e, e.pageX)
   }
 
   render() {
     return (
       <div className="portfolio">
         <h2>Portfolio</h2>
-        <div onMouseDown={this.onMouseDown} className="items">
+        <div
+          onTouchStart={this.onTouchStart}
+          onTouchMove={this.onTouchMove}
+          onTouchEnd={this.onTouchEnd}
+          onMouseDown={this.onMouseDown}
+          className="items"
+        >
           {this.state.portfolioItemsData.map((data, index) => {
             if (index < this.state.midSectionOfArray) {
               return (
@@ -127,7 +164,9 @@ class Portfolio extends React.Component {
             }
           })}
         </div>
-        <p>Make a button that allows the user to redirect to the portfolio page</p>
+        <p>
+          Make a button that allows the user to redirect to the portfolio page
+        </p>
       </div>
     )
   }

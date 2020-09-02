@@ -9,9 +9,11 @@ const AboutMe = () => (
     <div className="center-content">
       <div className="container">
         <h1>About me</h1>
-        <div>
-          <p>Picture here</p>
-          <p>I'm Kiro. A programmer with an aspiration to make money solving problems with my coding skills.</p>
+        <div className="about-me">
+          <p>
+            I'm Kiro. A programmer with an aspiration to make money with my
+            coding skills.
+          </p>
         </div>
       </div>
     </div>
