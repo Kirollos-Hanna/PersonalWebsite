@@ -1,7 +1,8 @@
+import { Link } from "gatsby"
 import React from "react"
 import PortfolioItem from "./portfolio-item"
 
-class Portfolio extends React.Component {
+class PortfolioSection extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -164,12 +165,10 @@ class Portfolio extends React.Component {
             }
           })}
         </div>
-        <p>
-          Make a button that allows the user to redirect to the portfolio page
-        </p>
+        <button className="portfolio-button"><Link to="/portfolio">See All Projects</Link></button>
       </div>
     )
   }
 }
 
-export default Portfolio
+export default PortfolioSection
