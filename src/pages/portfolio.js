@@ -37,15 +37,10 @@ class Portfolio extends React.Component {
     return (
       <Layout currentLink="portfolio">
         <SEO title="Kiro Hanna's Portfolio page" />
-        <h1>Portfolio page</h1>
+        <h1 style={{ margin: `10px` }}>Portfolio page</h1>
         <div className="portfolio-catalog">
           {this.state.portfolioItemsData.map((data, index) => {
-            return (
-              <ExpandedPortfolioItem
-                title={data.title}
-                text={data.text}
-              />
-            )
+            return <ExpandedPortfolioItem title={data.title} text={data.text} />
           })}
         </div>
       </Layout>

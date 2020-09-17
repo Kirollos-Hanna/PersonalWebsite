@@ -1,6 +1,7 @@
 import { Link } from "gatsby"
 import React from "react"
 import PortfolioItem from "./portfolio-item"
+import CallToActionButton from "./call-to-action-button"
 
 class PortfolioSection extends React.Component {
   constructor(props) {
@@ -165,7 +166,11 @@ class PortfolioSection extends React.Component {
             }
           })}
         </div>
-        <button className="portfolio-button"><Link to="/portfolio">See All Projects</Link></button>
+        <CallToActionButton
+          styleClass="call-to-action-button portfolio-button"
+          link="/portfolio"
+          text="See All Projects"
+        />
       </div>
     )
   }

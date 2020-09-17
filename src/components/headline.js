@@ -1,5 +1,6 @@
 import React from "react"
-import {Link} from "gatsby"
+import { Link } from "gatsby"
+import CallToActionButton from "./call-to-action-button"
 
 class Headline extends React.Component {
   render() {
@@ -9,7 +10,11 @@ class Headline extends React.Component {
           <h1>Kiro Hanna</h1>
         </div>
         <h4>Full Stack Developer</h4>
-        <button className="blog-button"><Link to="/blog">Visit the Blog</Link></button>
+        <CallToActionButton
+          styleClass="call-to-action-button blog-button"
+          link="/blog"
+          text="Visit the Blog"
+        />
       </div>
     )
   }
