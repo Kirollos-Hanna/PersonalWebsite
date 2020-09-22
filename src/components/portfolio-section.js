@@ -1,7 +1,6 @@
 import React from "react"
 import PortfolioItem from "./portfolio-item"
 import CallToActionButton from "./call-to-action-button"
-import { useSiteMetadata } from "../hooks/portfolio-items-query"
 
 class PortfolioSection extends React.Component {
 
