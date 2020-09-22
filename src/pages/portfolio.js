@@ -9,28 +9,26 @@ class Portfolio extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      portfolioItemsData: [
-        {
-          title: "Portfolio Item 1",
-          text:
-            "Lorem ipsum dolor sit amet, consectetur ut labore et dolore magna am",
-        },
-        {
-          title: "Portfolio Item 2",
-          text:
-            "Lorem ipsum dolor sit amet, consectetur ut labore et dolore magna am",
-        },
-        {
-          title: "Portfolio Item 3",
-          text:
-            "Lorem ipsum dolor sit amet, consectetur ut labore et dolore magna am",
-        },
-        {
-          title: "Portfolio Item 4",
-          text:
-            "Lorem ipsum dolor sit amet, consectetur ut labore et dolore magnaamet, consectetur adipiscing elit, sed do eiusmod tempor incididunt utlabore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrudexercitation ullamco laboris nisi ut aliquip ex Lorem ipsum dolor sitamet, consectetur adipiscing elit, sed do eiusmod tempor incididunt utlabore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex Lorem ipsum dolor sitamet, consectetur adipiscing elit, sed do eiusmod tempor incididunt utlabore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrudexercitation",
-        },
-      ],
+      portfolioItemsData: [{
+        title: "Logs Analysis",
+        text:
+          "The program uses python and psycopg2 to make queries to an SQL database and outputs the results in a simple text file. The queries include joining multiple tables to get the desired information and is presented in an easy to read format for interested readers.",
+      },
+      {
+        title: "Item Catalog",
+        text:
+          "The program uses Python, Flask and SQLAlchemy to retrieve data from a database and show it to the user. The user can see all availabe items and can login to make his/her own items as well as delete and edit those items but he/she can't delete or edit other users' items.",
+      },
+      {
+        title: "Building Manager App",
+        text:
+          "A Flutter app for building managers to allow them to distribute and collect bills more easily to/from residents. It uses firebase to authenticate users and store data.",
+      },
+      {
+        title: "AR Camera App",
+        text:
+          "An app for detecting, segmenting and showing images in AR view. It uses Flask and MaskRCNN for API calls and image manipulation and uses java for android development.",
+      },]
     }
   }
   render() {

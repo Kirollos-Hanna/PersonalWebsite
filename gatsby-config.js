@@ -1,10 +1,33 @@
 module.exports = {
   siteMetadata: {
     title: `Kiro Hanna`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    description: `My portfolio and blog website.`,
+    author: `Kiro Hanna`,
+    portfolioItems: [
+      {
+      title: "Portfolio Item 1",
+      text:
+        "Lorem ipsum dolor sit amet, consectetur ut labore et dolore magna am",
+    },
+    {
+      title: "Portfolio Item 2",
+      text:
+        "Lorem ipsum dolor sit amet, consectetur ut labore et dolore magna am",
+    },
+    {
+      title: "Portfolio Item 3",
+      text:
+        "Lorem ipsum dolor sit amet, consectetur ut labore et dolore magna am",
+    },
+    {
+      title: "Portfolio Item 4",
+      text:
+        "Lorem ipsum dolor sit amet, consectetur ut labore et dolore magnaamet, consectetur adipiscing elit, sed do eiusmod tempor incididunt utlabore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrudexercitation ullamco laboris nisi ut aliquip ex Lorem ipsum dolor sitamet, consectetur adipiscing elit, sed do eiusmod tempor incididunt utlabore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex Lorem ipsum dolor sitamet, consectetur adipiscing elit, sed do eiusmod tempor incididunt utlabore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrudexercitation",
+    },
+    ]
   },
   plugins: [
+    `gatsby-plugin-catch-links`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -14,7 +37,20 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: [] // just in case those previously mentioned remark plugins sound cool :)
+      }
+    },
     `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/pages`,
+        name: "pages"
+      }
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
