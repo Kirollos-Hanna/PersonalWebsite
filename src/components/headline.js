@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import CallToActionButton from "./call-to-action-button"
 
 class Headline extends React.Component {

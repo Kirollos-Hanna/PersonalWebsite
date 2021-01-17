@@ -418,32 +418,32 @@ Portfolio section styling
 
 /* blog posts listing styling */
 
-.blog-posts{
+.blog-posts {
   /* margin: 20px; */
   background-color: white;
 }
 
-.blog-post-preview{
-  margin:20px;
+.blog-post-preview {
+  margin: 20px;
 }
 
-.blog-post-preview a{
+.blog-post-preview a {
   color: black;
 }
 
-.blog-post-preview hr{
+.blog-post-preview hr {
   /* height: 2px; */
   background-color: black;
   border: 1px solid black;
 }
 
-.blog-post-preview h2{
+.blog-post-preview h2 {
   font-size: 20px;
 }
 
 
 /* blog post container styling */
 
-.blog-post-container{
-  margin: 20px;
+.blog-post-container {
+  margin: 20px 100px;
 }
