@@ -11,20 +11,20 @@ class Footer extends React.Component {
               <b>Socials</b>
             </p>
             <li>
-              <Link to="https://twitter.com/Kiromoth">Twitter</Link>
+              <a href="https://twitter.com/Kiromoth">Twitter</a>
             </li>
             <li>
-              <Link to="https://www.twitch.tv/kiromoth">Twitch</Link>
+              <a href="https://www.twitch.tv/kiromoth">Twitch</a>
             </li>
             <li>
-              <Link to="https://www.youtube.com/channel/UCSLOn3zXOEplvfqUuFLho5g?view_as=subscriber">
+              <a href="https://www.youtube.com/channel/UCSLOn3zXOEplvfqUuFLho5g?view_as=subscriber">
                 Youtube
-              </Link>
+              </a>
             </li>
             <li>
-              <Link to="https://www.linkedin.com/in/kirollos-hanna">
+              <a href="https://www.linkedin.com/in/kirollos-hanna">
                 LinkedIn
-              </Link>
+              </a>
             </li>
           </ul>
           <ul className="other-links">
