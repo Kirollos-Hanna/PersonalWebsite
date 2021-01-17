@@ -1,32 +1,12 @@
 import React from "react"
+import { graphql, StaticQuery } from "gatsby"
 import PortfolioItem from "./portfolio-item"
 import CallToActionButton from "./call-to-action-button"
 
 class PortfolioSection extends React.Component {
-
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      portfolioItemsData:[{
-        title: "Logs Analysis",
-        text:
-          "The program uses python and psycopg2 to make queries to an SQL database and outputs the results in a simple text file. The queries include joining multiple tables to get the desired information and is presented in an easy to read format for interested readers.",
-      },
-      {
-        title: "Item Catalog",
-        text:
-          "The program uses Python, Flask and SQLAlchemy to retrieve data from a database and show it to the user. The user can see all availabe items and can login to make his/her own items as well as delete and edit those items but he/she can't delete or edit other users' items.",
-      },
-      {
-        title: "Building Manager App",
-        text:
-          "A Flutter app for building managers to allow them to distribute and collect bills more easily to/from residents. It uses firebase to authenticate users and store data.",
-      },
-      {
-        title: "AR Camera App",
-        text:
-          "An app for detecting, segmenting and showing images in AR view. It uses Flask and MaskRCNN for API calls and image manipulation and uses java for android development.",
-      },],
       midSectionOfArray: 2,
       dragging: false,
       initialMousePos: 0,
@@ -96,8 +76,6 @@ class PortfolioSection extends React.Component {
   }
 
   onTouchStart(e) {
-    // console.log(e)
-    // console.log(e.changedTouches[0].pageX)
     this.start(this, e, e.changedTouches[0].pageX)
   }
 
@@ -122,54 +100,72 @@ class PortfolioSection extends React.Component {
     this.move(this, e, e.pageX)
   }
 
-  render() {
+  render(data) {
     return (
-      <div className="portfolio">
-        <h2>Portfolio</h2>
-        <div
-          onTouchStart={this.onTouchStart}
-          onTouchMove={this.onTouchMove}
-          onTouchEnd={this.onTouchEnd}
-          onMouseDown={this.onMouseDown}
-          className="items"
-        >
-          {this.state.portfolioItemsData.map((data, index) => {
-            if (index < this.state.midSectionOfArray) {
-              return (
-                <PortfolioItem
-                  itemStyle={{ zIndex: `-1`, left: `1%`, opacity: `0.5` }}
-                  title={data.title}
-                  text={data.text}
-                />
-              )
-            } else if (index === this.state.midSectionOfArray) {
-              return (
-                <PortfolioItem
-                  itemStyle={{
-                    transform: `translate(` + this.state.itemXPos + `px, 30px)`,
-                    // left: this.state.itemXPos + `px`
-                  }}
-                  title={data.title}
-                  text={data.text}
-                />
-              )
-            } else {
-              return (
-                <PortfolioItem
-                  itemStyle={{ zIndex: `-1`, right: `1%`, opacity: `0.5` }}
-                  title={data.title}
-                  text={data.text}
-                />
-              )
+      <StaticQuery
+        query={graphql`
+          query query {
+            site {
+              siteMetadata {
+                portfolioItems {
+                  title
+                  text
+                }
+              }
             }
-          })}
-        </div>
-        <CallToActionButton
-          styleClass="call-to-action-button portfolio-button"
-          link="/portfolio"
-          text="See All Projects"
-        />
-      </div>
+          }
+        `}
+        render={data => (
+          <div className="portfolio">
+            <h2>Portfolio</h2>
+            <div
+              role="presentation"
+              onTouchStart={this.onTouchStart}
+              onTouchMove={this.onTouchMove}
+              onTouchEnd={this.onTouchEnd}
+              onMouseDown={this.onMouseDown}
+              className="items"
+            >
+              {data.site.siteMetadata.portfolioItems.map((data, index) => {
+                if (index < this.state.midSectionOfArray) {
+                  return (
+                    <PortfolioItem
+                      itemStyle={{ zIndex: `-1`, left: `1%`, opacity: `0.5` }}
+                      title={data.title}
+                      text={data.text}
+                    />
+                  )
+                } else if (index === this.state.midSectionOfArray) {
+                  return (
+                    <PortfolioItem
+                      itemStyle={{
+                        transform:
+                          `translate(` + this.state.itemXPos + `px, 30px)`,
+                        // left: this.state.itemXPos + `px`
+                      }}
+                      title={data.title}
+                      text={data.text}
+                    />
+                  )
+                } else {
+                  return (
+                    <PortfolioItem
+                      itemStyle={{ zIndex: `-1`, right: `1%`, opacity: `0.5` }}
+                      title={data.title}
+                      text={data.text}
+                    />
+                  )
+                }
+              })}
+            </div>
+            <CallToActionButton
+              styleClass="call-to-action-button portfolio-button"
+              link="/portfolio"
+              text="See All Projects"
+            />
+          </div>
+        )}
+      />
     )
   }
 }
