@@ -12,6 +12,7 @@ class PortfolioSection extends React.Component {
       initialMousePos: 0,
       currentMousePos: 0,
       itemXPos: 0,
+      portfolioItemsLength: 4,
     }
 
     this.onMouseDown = this.onMouseDown.bind(this)
@@ -64,7 +65,7 @@ class PortfolioSection extends React.Component {
     ) {
       if (
         entity.state.midSectionOfArray >=
-        entity.state.portfolioItemsData.length - 1
+        entity.state.portfolioItemsLength - 1
       )
         return
       entity.setState({
