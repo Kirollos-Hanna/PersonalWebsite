@@ -3,28 +3,26 @@ module.exports = {
     title: `Kiro Hanna`,
     description: `My portfolio and blog website.`,
     author: `Kiro Hanna`,
-    portfolioItems: [
-      {
-      title: "Portfolio Item 1",
+    portfolioItems: [{
+      title: "Logs Analysis",
       text:
-        "Lorem ipsum dolor sit amet, consectetur ut labore et dolore magna am",
+        "The program uses python and psycopg2 to make queries to an SQL database and outputs the results in a simple text file. The queries include joining multiple tables to get the desired information and is presented in an easy to read format for interested readers.",
     },
     {
-      title: "Portfolio Item 2",
+      title: "Item Catalog",
       text:
-        "Lorem ipsum dolor sit amet, consectetur ut labore et dolore magna am",
+        "The program uses Python, Flask and SQLAlchemy to retrieve data from a database and show it to the user. The user can see all availabe items and can login to make his/her own items as well as delete and edit those items but he/she can't delete or edit other users' items.",
     },
     {
-      title: "Portfolio Item 3",
+      title: "Building Manager App",
       text:
-        "Lorem ipsum dolor sit amet, consectetur ut labore et dolore magna am",
+        "A Flutter app for building managers to allow them to distribute and collect bills more easily to/from residents. It uses firebase to authenticate users and store data.",
     },
     {
-      title: "Portfolio Item 4",
+      title: "AR Camera App",
       text:
-        "Lorem ipsum dolor sit amet, consectetur ut labore et dolore magnaamet, consectetur adipiscing elit, sed do eiusmod tempor incididunt utlabore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrudexercitation ullamco laboris nisi ut aliquip ex Lorem ipsum dolor sitamet, consectetur adipiscing elit, sed do eiusmod tempor incididunt utlabore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex Lorem ipsum dolor sitamet, consectetur adipiscing elit, sed do eiusmod tempor incididunt utlabore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrudexercitation",
-    },
-    ]
+        "An app for detecting, segmenting and showing images in AR view. It uses Flask and MaskRCNN for API calls and image manipulation and uses java for android development.",
+    },]
   },
   plugins: [
     `gatsby-plugin-catch-links`,
@@ -47,8 +45,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/pages`,
-        name: "pages"
+        path: `${__dirname}/src/posts`,
+        name: "posts"
       }
     },
     {
