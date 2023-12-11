@@ -1,29 +1,36 @@
-## Todos
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-- Learn about Netlify and Vercel for deployment
+## Getting Started
 
-- Make a list of all your projects in the middle of the home page as your portfolio
-  - Add touch events to make the projects carousel mobile responsive **(DONE)**
-  - write down your own projects and add appropriate links
+First, run the development server:
 
-- Make a Blog Page
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-- Make an About Me Page **(DONE)**
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-- Make a Header **(DONE)**
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-- Make a call to action Button for accessing the blog(can later include other mediums of content ie. YT...)
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-- Make a Footer **(DONE)**
+## Learn More
 
-  - Style the footer **(DONE)**
+To learn more about Next.js, take a look at the following resources:
 
-  - Footer should include...
-  - Links to Socials **(DONE)**
-  - About Me Link **(DONE)**
-  - Contact Me Link **(DONE)**
-  - Archive Link **(DONE)**
-  - Privacy Policy
-  - Cookie Disclaimer (if used)
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-- Make a Headline **(DONE)**
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
