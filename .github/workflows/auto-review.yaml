@@ -32,7 +32,9 @@ jobs:
         GITHUB_REPOSITORY: ${{ github.repository }}
         PR_NUMBER: ${{ github.event.inputs.prNumber }}
       run: |
-        echo "prompt=$(python auto_review_files/get_github_changes.py | base64)"  >> $GITHUB_OUTPUT
+        prompt=$(python auto_review_files/get_github_changes.py)
+        encoded_prompt=$(echo "$prompt" | base64)
+        echo "prompt=encoded_prompt"  >> $GITHUB_OUTPUT
     - name: Print Prompt
       run : |
         echo "HERE IS THE PROMPT"
