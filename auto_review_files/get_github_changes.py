@@ -36,9 +36,9 @@ Title: {title}
 Body: {body}
 
 Changes:
-```
+``
 {changes}
-```
+``
     '''
 
 print(prompt)
