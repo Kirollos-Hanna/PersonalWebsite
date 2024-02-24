@@ -25,9 +25,15 @@ jobs:
         pip install PyGithub Requests
 
     - name: Formulate Prompt
+      id: prompt-step
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         GITHUB_REPOSITORY: ${{ github.repository }}
         PR_NUMBER: ${{ github.event.inputs.prNumber }}
-      run: python auto_review_files/get_github_changes.py
+      run: |
+        echo "prompt=${python auto_review_files/get_github_changes.py}"  >> $GITHUB_OUTPUT
+    - name: Print Prompt
+      run : |
+        echo "HERE IS THE PROMPT"
+        echo ${{ steps.prompt-step.outputs.prompt }}

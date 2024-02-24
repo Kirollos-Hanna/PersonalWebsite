@@ -40,4 +40,5 @@ Changes:
 {changes}
 ```
     '''
-print("HERE ARE THE CHANGES: ", prompt)
+
+print(prompt)
