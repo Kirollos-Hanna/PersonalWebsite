@@ -33,7 +33,7 @@ jobs:
         PR_NUMBER: ${{ github.event.inputs.prNumber }}
       run: |
         python auto_review_files/get_github_changes.py
-        prompt=$(python auto_review_files/get_github_changes.py)
+        prompt=$(python auto_review_files/get_github_changes.py | sed "s/\`//g")
         encoded_prompt=$(echo "$prompt" | base64)
         
         echo "prompt<<EOF" >> $GITHUB_OUTPUT
