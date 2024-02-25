@@ -47,7 +47,8 @@ jobs:
         RUNPOD_API_TOKEN: ${{ secrets.RUNPOD_API_TOKEN }}
       run: |
         poetry install --all-extras
-        poetry run runpod-ollama start-proxy
+        poetry run runpod-ollama start-proxy &
+        sleep 5
     - name: Print Prompt
       run : |
         prompt=${{ steps.prompt-step.outputs.prompt }}
