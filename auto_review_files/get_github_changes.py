@@ -40,9 +40,7 @@ Changes:
 {changes}
 ```
     '''
-
-prompt = ""
-
+print("Sending prompt to llm")
 response = litellm.completion(
     model="ollama/mistral-fb",
     messages=[{"content": prompt}],
