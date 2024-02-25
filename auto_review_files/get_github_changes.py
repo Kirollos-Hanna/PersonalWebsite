@@ -1,5 +1,5 @@
 import os
-import re
+import litellm
 import requests
 from github import Github
 
@@ -41,4 +41,13 @@ Changes:
 ```
     '''
 
-print(prompt)
+prompt = ""
+
+response = litellm.completion(
+    model="ollama/mistral-fb",
+    messages=[{"content": prompt}],
+    base_url="http://127.0.0.1:5000/awm66u3on0l6l0",
+    stream=False,
+)
+
+print(response.choices[0].message["content"])

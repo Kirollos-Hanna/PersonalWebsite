@@ -7,6 +7,9 @@ on:
         description: 'Pull Request Number'
         required: true
 
+env:
+  RUNPOD_API_TOKEN: ${{ secrets.RUNPOD_API_TOKEN }}
+
 jobs:
   review:
     runs-on: ubuntu-latest
@@ -28,6 +31,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install PyGithub Requests litellm
+    - name: Run Proxy Server
+      run: |
+        poetry install --all-extras
+        poetry run runpod-ollama start-proxy &
+        sleep 5
     - name: Formulate Prompt
       id: prompt-step
       env:
@@ -42,15 +50,10 @@ jobs:
         echo "prompt<<EOF" >> $GITHUB_OUTPUT
         echo "$prompt" >> $GITHUB_OUTPUT
         echo "EOF" >> $GITHUB_OUTPUT
-    - name: Run Proxy Server
-      env:
-        RUNPOD_API_TOKEN: ${{ secrets.RUNPOD_API_TOKEN }}
-      run: |
-        poetry install --all-extras
-        poetry run runpod-ollama start-proxy &
-        sleep 5
-    - name: Print Prompt
-      run : |
-        prompt=${{ steps.prompt-step.outputs.prompt }}
-        echo "$prompt"
+    # - name: Print Prompt
+    #   env:
+    #     PROMPT: "${{ steps.prompt-step.outputs.prompt }}"
+    #   run : |
+    #     prompt="${{ steps.prompt-step.outputs.prompt }}"
+    #     echo "$prompt"
 
