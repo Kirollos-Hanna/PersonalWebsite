@@ -5,13 +5,20 @@ from github import Github
 
 github_token = os.getenv("GITHUB_TOKEN")
 github_client = Github(github_token)
-repo = github_client.get_repo(os.getenv("GITHUB_REPOSITORY"))
-pr = repo.get_pull(int(os.getenv("PR_NUMBER")))
+github_repo_name = os.getenv("GITHUB_REPOSITORY")
+repo = github_client.get_repo(github_repo_name)
+repo_owner = os.getenv("REPO_OWNER")
+pr_number = int(os.getenv("PR_NUMBER"))
+pr = repo.get_pull(pr_number)
+
+headers = {
+    "Authorization": "Bearer " + github_token,
+    "Accept": "application/vnd.github.v3+json"
+}
 changes = requests.get(
     pr.url,
     timeout=30,
-    headers={"Authorization": "Bearer " + github_token,
-            "Accept": "application/vnd.github.v3.diff"},
+    headers=headers,
 ).text
 
 title=pr.title
@@ -40,6 +47,7 @@ Changes:
 {changes}
 ```
     '''
+
 print("Sending prompt to llm")
 response = litellm.completion(
     model="ollama/mistral",
@@ -48,4 +56,16 @@ response = litellm.completion(
     stream=False,
 )
 
-print(response.choices[0].message["content"])
+pr_comment_payload = {
+    "body": response.choices[0].message["content"]
+}
+url = f"https://api.github.com/repos/{repo_owner}/{github_repo_name}/issues/{pr_number}/comments"
+
+# Make the POST request to add the comment
+response = requests.post(url, json=pr_comment_payload, headers=headers)
+
+# Check the response
+if response.status_code == 201:
+    print("Comment posted successfully.")
+else:
+    print(f"Failed to post comment. Status code: {response.status_code}, Response: {response.text}")
