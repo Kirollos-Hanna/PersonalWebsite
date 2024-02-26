@@ -42,7 +42,7 @@ Changes:
     '''
 print("Sending prompt to llm")
 response = litellm.completion(
-    model="ollama/mistral-fb",
+    model="ollama/mistral",
     messages=[{"content": prompt}],
     base_url="http://127.0.0.1:5000/cdgxhqjxaw8lov",
     stream=False,
