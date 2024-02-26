@@ -54,8 +54,9 @@ response = litellm.completion(
     messages=[{"content": prompt}],
     base_url="http://127.0.0.1:5000/cdgxhqjxaw8lov",
     stream=False,
+    timeout=30
 )
-
+print("RESPONSE: ", response)
 pr_comment_payload = {
     "body": response.choices[0].message["content"]
 }
