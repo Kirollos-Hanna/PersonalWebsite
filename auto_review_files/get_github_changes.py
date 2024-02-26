@@ -41,11 +41,11 @@ Changes:
 ```
     '''
 print("Sending prompt to llm")
-# response = litellm.completion(
-#     model="ollama/mistral-fb",
-#     messages=[{"content": prompt}],
-#     base_url="http://127.0.0.1:5000/awm66u3on0l6l0",
-#     stream=False,
-# )
+response = litellm.completion(
+    model="ollama/mistral-fb",
+    messages=[{"content": prompt}],
+    base_url="http://127.0.0.1:5000/cdgxhqjxaw8lov",
+    stream=False,
+)
 
-# print(response.choices[0].message["content"])
+print(response.choices[0].message["content"])
