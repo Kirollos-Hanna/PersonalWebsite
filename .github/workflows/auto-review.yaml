@@ -41,20 +41,6 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GITHUB_REPOSITORY: ${{ github.repository }}
-        REPO_OWNER: ${{ github.repository_owner }}
         PR_NUMBER: ${{ github.event.inputs.prNumber }}
       run: |
         python auto_review_files/get_github_changes.py
-    #     prompt=$(python auto_review_files/get_github_changes.py | sed "s/\`//g")
-    #     encoded_prompt=$(echo "$prompt" | base64)
-        
-    #     echo "prompt<<EOF" >> $GITHUB_OUTPUT
-    #     echo "$prompt" >> $GITHUB_OUTPUT
-    #     echo "EOF" >> $GITHUB_OUTPUT
-    # - name: Show Comment on PR
-    #   env:
-    #     PROMPT: "${{ steps.prompt-step.outputs.prompt }}"
-    #   run : |
-    #     prompt="${{ steps.prompt-step.outputs.prompt }}"
-    #     echo "$prompt"
-
