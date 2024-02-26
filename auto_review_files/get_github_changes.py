@@ -48,7 +48,7 @@ Changes:
 ```
     '''
 
-print("Sending prompt to llm")
+print("Sending prompt to llm", prompt)
 response = litellm.completion(
     model="ollama/mistral",
     messages=[{"content": prompt}],
