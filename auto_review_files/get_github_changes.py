@@ -61,7 +61,7 @@ pr_comment_payload = {
     "body": response.choices[0].message["content"]
 }
 print("REPO INFO", repo_owner, github_repo_name, pr_number)
-url = f"https://api.github.com/repos/{repo_owner}/{github_repo_name}/issues/{pr_number}/comments"
+url = f"https://api.github.com/repos/{github_repo_name}/issues/{pr_number}/comments"
 
 # Make the POST request to add the comment
 response = requests.post(url, json=pr_comment_payload, headers=headers)
