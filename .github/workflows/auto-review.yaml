@@ -25,17 +25,23 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install PyGithub Requests boto3 
-    - name: Configure AWS credentials
+    - name: Configure AWS SSO Credentials
       env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_SSO_START_URL: ${{ secrets.AWS_SSO_START_URL }}
+        AWS_SSO_REGION: ${{ secrets.AWS_SSO_REGION }}
+        AWS_SSO_ACCOUNT_ID: ${{ secrets.AWS_SSO_ACCOUNT_ID }}
+        AWS_SSO_ROLE_NAME: ${{ secrets.AWS_SSO_ROLE_NAME }}
       run: |
-        aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
-        aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-        aws configure set default.region eu-west-3
+        aws configure set sso_start_url $AWS_SSO_START_URL
+        aws configure set sso_region $AWS_SSO_REGION
+        aws configure set sso_account_id $AWS_SSO_ACCOUNT_ID
+        aws configure set sso_role_name $AWS_SSO_ROLE_NAME
+        aws configure sso-session sso_session
+        aws sso login --profile sso_profile
     - name: Review PR
       id: prompt-step
       env:
+        AWS_PROFILE: sso_profile
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GITHUB_REPOSITORY: ${{ github.repository }}
         PR_NUMBER: ${{ github.event.inputs.prNumber }}
