@@ -32,6 +32,7 @@ jobs:
         AWS_SSO_ACCOUNT_ID: ${{ secrets.AWS_SSO_ACCOUNT_ID }}
         AWS_SSO_ROLE_NAME: ${{ secrets.AWS_SSO_ROLE_NAME }}
       run: |
+        aws --version
         aws configure set sso_start_url $AWS_SSO_START_URL
         aws configure set sso_region $AWS_SSO_REGION
         aws configure set sso_account_id $AWS_SSO_ACCOUNT_ID
