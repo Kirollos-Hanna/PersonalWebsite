@@ -24,7 +24,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install PyGithub Requests boto3 
+        pip install PyGithub Requests boto3 awscli
     - name: Configure AWS SSO Credentials
       env:
         AWS_SSO_START_URL: ${{ secrets.AWS_SSO_START_URL }}
