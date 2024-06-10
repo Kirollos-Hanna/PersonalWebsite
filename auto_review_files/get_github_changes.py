@@ -1,5 +1,6 @@
 import os
-import litellm
+import json
+import boto3
 import requests
 from github import Github
 
@@ -48,17 +49,30 @@ Changes:
 ```
     '''
 
-print("Sending prompt to llm", prompt)
-response = litellm.completion(
-    model="ollama/mistral",
-    messages=[{"content": prompt}],
-    base_url="http://127.0.0.1:5000/cdgxhqjxaw8lov",
-    stream=False,
-    timeout=30
-)
+client = boto3.client('bedrock-runtime')
+body = json.dumps({
+    "prompt": prompt,
+    "max_tokens": 500,
+    "top_p": 0.8,
+    "temperature": 0.5
+})
 
+model_id = "mistral.mistral-7b-instruct-v0:2"
+headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json"
+}
+
+response = client.invoke_model(
+    body=body,
+    modelId=model_id,
+    accept=headers['Accept'],
+    contentType=headers['Content-Type']
+)
+response_body = json.loads(response['body'].read())   
+print("RES BODY: ", response_body)
 pr_comment_payload = {
-    "body": response.choices[0].message["content"]
+    "body": response_body['outputs'][0]['text']
 }
 url = f"https://api.github.com/repos/{github_repo_name}/issues/{pr_number}/comments"
 
